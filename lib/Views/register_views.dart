@@ -1,4 +1,4 @@
-import 'package:chat_app/Views/login_view.dart';
+import 'package:chat_app/constants.dart';
 import 'package:chat_app/widgets/custom_container_buttom.dart';
 import 'package:chat_app/widgets/custom_text_field.dart';
 import 'package:chat_app/widgets/cutom_bottom.dart';
@@ -6,27 +6,31 @@ import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
+  static String id = 'RegisterView';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2b475F),
+      backgroundColor: kPrimaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(flex: 2),
-            Image.asset('assets/images/scholar.png'),
-            Text(
-              'Scholar Chat',
-              style: TextStyle(
-                fontSize: 32,
-                color: Colors.white,
-                fontFamily: 'Pacifico',
+            // SizedBox(height: 50),
+            Image.asset('assets/images/scholar.png', height: 100),
+            Center(
+              child: Text(
+                'Scholar Chat',
+                style: TextStyle(
+                  fontSize: 32,
+                  color: Colors.white,
+                  fontFamily: 'Pacifico',
+                ),
               ),
             ),
-            const Spacer(flex: 1),
+
+            // SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -36,10 +40,19 @@ class RegisterView extends StatelessWidget {
                 ),
               ],
             ),
+            Row(
+              children: [
+                Expanded(child: CustomTextField(hintText: 'First Name')),
+                const SizedBox(width: 10),
+                Expanded(child: CustomTextField(hintText: 'Last Name')),
+              ],
+            ),
             const SizedBox(height: 10),
             CustomTextField(hintText: 'Email'),
             const SizedBox(height: 10),
-            CustomTextField(hintText: 'Password'),
+            CustomTextField(hintText: 'password'),
+            const SizedBox(height: 10),
+            CustomTextField(hintText: 'Confirm password'),
             const SizedBox(height: 30),
             CustomContainerButtom(text: 'Register'),
             const SizedBox(height: 15),
@@ -53,19 +66,12 @@ class RegisterView extends StatelessWidget {
                 CutomBottom(
                   title: ' Login',
                   ontap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return LoginView();
-                        },
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                 ),
               ],
             ),
-            const Spacer(flex: 2),
+            // SizedBox(height: 50),
           ],
         ),
       ),

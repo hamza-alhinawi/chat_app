@@ -1,4 +1,5 @@
 import 'package:chat_app/Views/register_views.dart';
+import 'package:chat_app/constants.dart';
 import 'package:chat_app/widgets/custom_container_buttom.dart';
 import 'package:chat_app/widgets/custom_text_field.dart';
 import 'package:chat_app/widgets/cutom_bottom.dart';
@@ -6,27 +7,30 @@ import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
-
+  static String id = 'LonginView';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2b475F),
+      backgroundColor: kPrimaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(flex: 2),
-            Image.asset('assets/images/scholar.png'),
-            Text(
-              'Scholar Chat',
-              style: TextStyle(
-                fontSize: 32,
-                color: Colors.white,
-                fontFamily: 'Pacifico',
+            SizedBox(height: 50),
+            Image.asset('assets/images/scholar.png', height: 100),
+            Center(
+              child: Text(
+                'Scholar Chat',
+                style: TextStyle(
+                  fontSize: 32,
+                  color: Colors.white,
+                  fontFamily: 'Pacifico',
+                ),
               ),
             ),
-            const Spacer(flex: 1),
+            SizedBox(height: 50),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -53,19 +57,12 @@ class LoginView extends StatelessWidget {
                 CutomBottom(
                   title: ' Register',
                   ontap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return RegisterView();
-                        },
-                      ),
-                    );
+                    Navigator.pushNamed(context, RegisterView.id);
                   },
                 ),
               ],
             ),
-            const Spacer(flex: 2),
+            SizedBox(height: 50),
           ],
         ),
       ),
