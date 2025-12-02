@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/helpers/snakbar.dart';
 import 'package:chat_app/widgets/custom_container_buttom.dart';

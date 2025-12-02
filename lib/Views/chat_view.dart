@@ -5,17 +5,25 @@ import 'package:chat_app/widgets/custom_chat_bubul.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ChatView extends StatelessWidget {
-  // const ChatView({super.key});
+class ChatView extends StatefulWidget {
+  const ChatView({super.key});
 
   static String id = 'ChatViews';
+
+  @override
+  State<ChatView> createState() => _ChatViewState();
+}
+
+class _ChatViewState extends State<ChatView> {
   final controller2 = ScrollController();
+
   // final String email ;
   CollectionReference messages = FirebaseFirestore.instance.collection(
     kMessagesCollections,
   );
 
   TextEditingController controller = TextEditingController();
+
   // final String color;
   @override
   Widget build(BuildContext context) {
