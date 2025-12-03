@@ -1,3 +1,4 @@
+import 'package:chat_app/Cubit/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/Cubit/login_cubit/login_cubit.dart';
 import 'package:chat_app/Views/chat_view.dart';
 import 'package:chat_app/Views/register_views.dart';
@@ -35,6 +36,7 @@ class _LoginViewState extends State<LoginView> {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSuccess) {
+          BlocProvider.of<ChatCubit>(context).getMessages();
           Navigator.pushNamed(context, ChatView.id);
           showSnackBar(color: Colors.green, context, text: 'Sucess');
         } else if (state is LoginFailure) {
